@@ -1,27 +1,36 @@
+# review.py
+from customer import Customer
+from Reasturantg import Restaurant
+
 class Review:
-    def __init__(self, customer, restaurant, rating):
-        # Initialize a review .
+    all_reviews = []
+    id_counter = 1
+
+    def __init__(self, rating, customer, restaurant):
+        self.id = Review.id_counter
         self.customer = customer
         self.restaurant = restaurant
         self.rating = rating
+        Review.all_reviews.append(self)
+        Review.id_counter += 1
 
-    def get_rating(self):
-        # rating for this review being returned
-        return self.rating
+    @classmethod
+    def append_reviews(cls, review):
+        cls.all_reviews.append(review)
 
     @classmethod
     def get_all_reviews(cls):
-        # Return all review 
-        return cls.reviews
+        for review in cls.all_reviews:
+            print(f"Review ID: {review.id}")
+            print(f"Rating: {review.rating}")
+            print("Customer:")
+            review.get_customer()
+            print("Restaurant:")
+            review.get_restaurant()
+            print()
 
     def get_customer(self):
-        # Return the customer object for this review
-        return self.customer
+        print(self.customer.get_full_name())
 
     def get_restaurant(self):
-        # Return the restaurant object for this review
-        return self.restaurant
-
-
-# Initialize a list to store review instances
-Review.reviews = []
+        print(self.restaurant.get_name())
