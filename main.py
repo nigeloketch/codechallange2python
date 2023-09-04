@@ -1,8 +1,10 @@
 from customer import Customer
-from restarunt import Review
+from Review import Review
 
-name = Customer("Paul", "Gudoi")
+name = Customer("Paul", "gudoi")
 print(name.given_name)
+print(name.family_name)
+        
+ 
 
-review1 = Review ("nigel","ohio","five star")
-print(review1)
+

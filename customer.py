@@ -1,33 +1,26 @@
 class Customer:
     def __init__(self, given_name, family_name):
+        # Initialize a customer with given name and family name
         self.given_name = given_name
         self.family_name = family_name
-        self.reviews = []
 
-    def given_name(self):
+    def get_given_name(self):
+        # Return the customer's given name
         return self.given_name
 
-    def family_name(self):
+    def get_family_name(self):
+        # Return the customer's family name
         return self.family_name
 
-    def full_name(self):
+    def get_full_name(self):
+        # Return the full name of the customer
         return f"{self.given_name} {self.family_name}"
 
-    def all(self):
-        return self
-
-    def restaurants(self):
-        restaurant_list = []
-        for review in self.reviews:
-            restaurant = review.restaurant()
-            if restaurant not in restaurant_list:
-                restaurant_list.append(restaurant)
-        return restaurant_list
-
-    def add_review(self, restaurant, rating):
-        new_review = Review(self, restaurant, rating)
-        self.reviews.append(new_review)
+    @classmethod
+    def get_all_customers(cls):
+        # Return all customer instances
+        return cls.customers
 
 
-class Review:
-    ...
+# Initialize a list to store customer instances
+Customer.customers = []
