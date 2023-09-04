@@ -1,7 +1,7 @@
 # main.py
 from customer import Customer
 from Review import Review
-from Reasturant import Restaurant
+from Restaurant import Restaurant
 
 # Create a customer
 customer1 = Customer("John", "Doe")
